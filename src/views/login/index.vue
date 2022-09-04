@@ -1,15 +1,8 @@
 <template>
   <div class="login-container">
     <!-- 导航栏 -->
-    <van-nav-bar
-      class="page-nav-bar"
-      title="登录"
-    >
-      <van-icon
-        slot="left"
-        name="cross"
-        @click="$router.back()"
-      />
+    <van-nav-bar class="page-nav-bar" title="登录">
+      <van-icon slot="left" name="cross" @click="$router.back()" />
     </van-nav-bar>
     <!-- /导航栏 -->
 
@@ -60,7 +53,8 @@
             size="small"
             type="default"
             @click="onSendSms"
-          >发送验证码</van-button>
+            >发送验证码</van-button
+          >
         </template>
       </van-field>
       <div class="login-btn-wrap">
@@ -87,20 +81,26 @@ export default {
         code: '246810' // 验证码
       },
       userFormRules: {
-        mobile: [{
-          required: true,
-          message: '手机号不能为空'
-        }, {
-          pattern: /^1[3|5|7|8]\d{9}$/,
-          message: '手机号格式错误'
-        }],
-        code: [{
-          required: true,
-          message: '验证码不能为空'
-        }, {
-          pattern: /^\d{6}$/,
-          message: '验证码格式错误'
-        }]
+        mobile: [
+          {
+            required: true,
+            message: '手机号不能为空'
+          },
+          {
+            pattern: /^1[3|5|7|8]\d{9}$/,
+            message: '手机号格式错误'
+          }
+        ],
+        code: [
+          {
+            required: true,
+            message: '验证码不能为空'
+          },
+          {
+            pattern: /^\d{6}$/,
+            message: '验证码格式错误'
+          }
+        ]
       },
       isCountDownShow: false // 是否展示倒计时
     }
